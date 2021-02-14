@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A2E748925D646EA00186BE1 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2E748825D646EA00186BE1 /* UIButtonExtension.swift */; };
 		8A81BF1725D4AEE3006DB168 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A81BF1625D4AEE3006DB168 /* AppDelegate.swift */; };
 		8A81BF1925D4AEE3006DB168 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A81BF1825D4AEE3006DB168 /* SceneDelegate.swift */; };
 		8A81BF1B25D4AEE3006DB168 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A81BF1A25D4AEE3006DB168 /* ViewController.swift */; };
 		8A81BF1E25D4AEE3006DB168 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A81BF1C25D4AEE3006DB168 /* Main.storyboard */; };
 		8A81BF2025D4AEE5006DB168 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A81BF1F25D4AEE5006DB168 /* Assets.xcassets */; };
-		8A81BF2325D4AEE5006DB168 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A81BF2125D4AEE5006DB168 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8A81BF1325D4AEE3006DB168 /* calculadoraTareaCenfotec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calculadoraTareaCenfotec.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A2E748825D646EA00186BE1 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		8A81BF1325D4AEE3006DB168 /* Calculadora Cenfotec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculadora Cenfotec.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A81BF1625D4AEE3006DB168 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A81BF1825D4AEE3006DB168 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8A81BF1A25D4AEE3006DB168 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8A81BF1D25D4AEE3006DB168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A81BF1F25D4AEE5006DB168 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8A81BF2225D4AEE5006DB168 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A81BF2425D4AEE5006DB168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,7 +48,7 @@
 		8A81BF1425D4AEE3006DB168 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A81BF1325D4AEE3006DB168 /* calculadoraTareaCenfotec.app */,
+				8A81BF1325D4AEE3006DB168 /* Calculadora Cenfotec.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +56,23 @@
 		8A81BF1525D4AEE3006DB168 /* calculadoraTareaCenfotec */ = {
 			isa = PBXGroup;
 			children = (
+				8A81BF2D25D4B168006DB168 /* Util */,
 				8A81BF1625D4AEE3006DB168 /* AppDelegate.swift */,
 				8A81BF1825D4AEE3006DB168 /* SceneDelegate.swift */,
 				8A81BF1A25D4AEE3006DB168 /* ViewController.swift */,
 				8A81BF1C25D4AEE3006DB168 /* Main.storyboard */,
 				8A81BF1F25D4AEE5006DB168 /* Assets.xcassets */,
-				8A81BF2125D4AEE5006DB168 /* LaunchScreen.storyboard */,
 				8A81BF2425D4AEE5006DB168 /* Info.plist */,
 			);
 			path = calculadoraTareaCenfotec;
+			sourceTree = "<group>";
+		};
+		8A81BF2D25D4B168006DB168 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8A2E748825D646EA00186BE1 /* UIButtonExtension.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,7 +92,7 @@
 			);
 			name = calculadoraTareaCenfotec;
 			productName = calculadoraTareaCenfotec;
-			productReference = 8A81BF1325D4AEE3006DB168 /* calculadoraTareaCenfotec.app */;
+			productReference = 8A81BF1325D4AEE3006DB168 /* Calculadora Cenfotec.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -125,7 +133,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A81BF2325D4AEE5006DB168 /* LaunchScreen.storyboard in Resources */,
 				8A81BF2025D4AEE5006DB168 /* Assets.xcassets in Resources */,
 				8A81BF1E25D4AEE3006DB168 /* Main.storyboard in Resources */,
 			);
@@ -139,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A81BF1B25D4AEE3006DB168 /* ViewController.swift in Sources */,
+				8A2E748925D646EA00186BE1 /* UIButtonExtension.swift in Sources */,
 				8A81BF1725D4AEE3006DB168 /* AppDelegate.swift in Sources */,
 				8A81BF1925D4AEE3006DB168 /* SceneDelegate.swift in Sources */,
 			);
@@ -153,14 +161,6 @@
 				8A81BF1D25D4AEE3006DB168 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8A81BF2125D4AEE5006DB168 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A81BF2225D4AEE5006DB168 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -291,7 +291,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.framirez.calculadoraTareaCenfotec;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Calculadora Cenfotec";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -308,7 +308,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.framirez.calculadoraTareaCenfotec;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Calculadora Cenfotec";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
