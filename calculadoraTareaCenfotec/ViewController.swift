@@ -10,43 +10,43 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var resultLabel: UILabel!
-    @IBOutlet var button0: UIButton!
-    @IBOutlet var button1: UIButton!
-    @IBOutlet var button2: UIButton!
-    @IBOutlet var button3: UIButton!
-    @IBOutlet var button4: UIButton!
-    @IBOutlet var button5: UIButton!
-    @IBOutlet var button6: UIButton!
-    @IBOutlet var button7: UIButton!
-    @IBOutlet var button8: UIButton!
-    @IBOutlet var button9: UIButton!
-    @IBOutlet var buttonAC: UIButton!
-    @IBOutlet var buttonPlusMinus: UIButton!
-    @IBOutlet var buttonPercent: UIButton!
-    @IBOutlet var buttonResult: UIButton!
-    @IBOutlet var buttonAddition: UIButton!
-    @IBOutlet var buttonSubtract: UIButton!
-    @IBOutlet var buttonMultiplication: UIButton!
-    @IBOutlet var buttonDivision: UIButton!
-    @IBOutlet var buttonDecimal: UIButton!
+    @IBOutlet var resultadoLabel: UILabel!
+    @IBOutlet var numero0: UIButton!
+    @IBOutlet var numero1: UIButton!
+    @IBOutlet var numero2: UIButton!
+    @IBOutlet var numero3: UIButton!
+    @IBOutlet var numero4: UIButton!
+    @IBOutlet var numero5: UIButton!
+    @IBOutlet var numero6: UIButton!
+    @IBOutlet var numero7: UIButton!
+    @IBOutlet var numero8: UIButton!
+    @IBOutlet var numero9: UIButton!
+    @IBOutlet var botonAC: UIButton!
+    @IBOutlet var botonMasMenos: UIButton!
+    @IBOutlet var botonPorcentaje: UIButton!
+    @IBOutlet var botonResultado: UIButton!
+    @IBOutlet var botonSuma: UIButton!
+    @IBOutlet var botonResta: UIButton!
+    @IBOutlet var botonMultiplicacion: UIButton!
+    @IBOutlet var botonDivision: UIButton!
+    @IBOutlet var botonDecimal: UIButton!
     
     private var total: Double = 0
     private var temporal: Double = 0
     private var estaRealizandoOperacion = false
     private var decimal = false
-    private var operacion: OperationType = .none
+    private var operacion: TipoOperacion = .ninguno
     
     private let decimalSeparator = Locale.current.decimalSeparator!
     private let longitudMaxima = 9
     private let totalAGuardar = "total"
     
-    //Begin Credits to MouroDev
-    private enum OperationType {
-        case none, addiction, substraction, multiplication, division, percent
+    //Begin Credits to Github autor
+    private enum TipoOperacion {
+        case ninguno, suma, resta, multiplicacion, division, porcentaje
     }
     
-    private let auxFormatter: NumberFormatter = {
+    private let formateador: NumberFormatter = {
         let formatter = NumberFormatter()
         let locale = Locale.current
         formatter.groupingSeparator = ""
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         return formatter
     }()
     
-    private let auxTotalFormatter: NumberFormatter = {
+    private let formateadorTotal: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.groupingSeparator = ""
         formatter.decimalSeparator = ""
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         return formatter
     }()
     
-    private let printFormatter: NumberFormatter = {
+    private let formateadorAMostrar: NumberFormatter = {
         let formatter = NumberFormatter()
         let locale = Locale.current
         formatter.groupingSeparator = locale.groupingSeparator
@@ -81,20 +81,20 @@ class ViewController: UIViewController {
         return formatter
     }()
     
-    private let printScientificFormatter: NumberFormatter = {
+    private let formateadorCientifico: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .scientific
         formatter.maximumFractionDigits = 3
         formatter.exponentSymbol = "e"
         return formatter
     }()
-    //End Credits to MouroDev
+    //End Credits to GitHub Autor
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     
-        buttonDecimal.setTitle(decimalSeparator, for: .normal)
+        botonDecimal.setTitle(decimalSeparator, for: .normal)
         
         total = UserDefaults.standard.double(forKey: totalAGuardar)
         
@@ -102,118 +102,103 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func buttonDecimalAction(_ sender: UIButton) {
-        let currentTemp = auxTotalFormatter.string(from: NSNumber(value: temporal))!
-        if resultLabel.text?.contains(decimalSeparator) ?? false || (!estaRealizandoOperacion && currentTemp.count >= longitudMaxima) {
+    @IBAction func botonDecimalAction(_ sender: UIButton) {
+        let temp = formateadorTotal.string(from: NSNumber(value: temporal))!
+        if resultadoLabel.text?.contains(decimalSeparator) ?? false || (!estaRealizandoOperacion && temp.count >= longitudMaxima) {
             return
         }
-        resultLabel.text = resultLabel.text! + decimalSeparator
+        resultadoLabel.text = resultadoLabel.text! + decimalSeparator
         decimal = true
-        sender.shine()
     }
     
-    @IBAction func buttonPlusMinusAction(_ sender: UIButton) {
+    @IBAction func botonMasMenosAction(_ sender: UIButton) {
         temporal = temporal * (-1)
-        resultLabel.text = printFormatter.string(from: NSNumber(value: temporal))
-        sender.shine()
+        resultadoLabel.text = formateadorAMostrar.string(from: NSNumber(value: temporal))
     }
     
-    @IBAction func buttonPercentAction(_ sender: UIButton) {
-        if operacion != .percent {
+    @IBAction func botonPorcentajeAction(_ sender: UIButton) {
+        if operacion != .porcentaje {
             mostrarResultado()
         }
         estaRealizandoOperacion = true
-        operacion = .percent
+        operacion = .porcentaje
         mostrarResultado()
-        sender.shine()
     }
     
-    @IBAction func buttonDivisionAction(_ sender: UIButton) {
-        if operacion != .none {
+    @IBAction func botonDivisionAction(_ sender: UIButton) {
+        if operacion != .ninguno {
             mostrarResultado()
         }
         estaRealizandoOperacion = true
         operacion = .division
-        sender.selectOperation(true)
-        sender.shine()
     }
     
-    @IBAction func buttonMultiplicationAction(_ sender: UIButton) {
-        if operacion != .none {
+    @IBAction func botonMultiplicacionAction(_ sender: UIButton) {
+        if operacion != .ninguno {
             mostrarResultado()
         }
         estaRealizandoOperacion = true
-        operacion = .multiplication
-        sender.selectOperation(true)
-        sender.shine()
+        operacion = .multiplicacion
     }
     
-    @IBAction func buttonSubtractAction(_ sender: UIButton) {
-        if operacion != .none {
+    @IBAction func botonRestaAction(_ sender: UIButton) {
+        if operacion != .ninguno {
             mostrarResultado()
         }
         estaRealizandoOperacion = true
-        operacion = .substraction
-        sender.selectOperation(true)
-        sender.shine()
+        operacion = .resta
     }
     
-    @IBAction func buttonAdditionAction(_ sender: UIButton) {
-        if operacion != .none {
+    @IBAction func botonSumaAction(_ sender: UIButton) {
+        if operacion != .ninguno {
             mostrarResultado()
         }
         estaRealizandoOperacion = true
-        operacion = .addiction
-        sender.selectOperation(true)
-        sender.shine()
+        operacion = .suma
     }
     
-    @IBAction func buttonResultAction(_ sender: UIButton) {
+    @IBAction func botonResultadoAction(_ sender: UIButton) {
         mostrarResultado()
-        sender.shine()
     }
     
-    @IBAction func buttonACAction(_ sender: UIButton) {
+    @IBAction func botonACAction(_ sender: UIButton) {
         limpiar()
-        sender.shine()
     }
     
-    @IBAction func numberAction(_ sender: UIButton) {
-        buttonAC.setTitle("C", for: .normal)
-        var currentTemp = auxTotalFormatter.string(from: NSNumber(value: temporal))!
-        if !estaRealizandoOperacion && currentTemp.count >= longitudMaxima {
+    @IBAction func botonNumeroAction(_ sender: UIButton) {
+        botonAC.setTitle("C", for: .normal)
+        var temp = formateadorTotal.string(from: NSNumber(value: temporal))!
+        if !estaRealizandoOperacion && temp.count >= longitudMaxima {
             return
         }
         
-        currentTemp = auxTotalFormatter.string(from: NSNumber(value: temporal))!
+        temp = formateadorTotal.string(from: NSNumber(value: temporal))!
         
         if estaRealizandoOperacion {
             total = total == 0 ? temporal : total
-            resultLabel.text = ""
-            currentTemp = ""
+            resultadoLabel.text = ""
+            temp = ""
             estaRealizandoOperacion = false
         }
         
         if decimal {
-            currentTemp = "\(currentTemp)\(decimalSeparator)"
+            temp = "\(temp)\(decimalSeparator)"
             decimal = false
         }
-        let number = sender.tag
-        temporal = Double(currentTemp + String(number))!
-        resultLabel.text = printFormatter.string(from: NSNumber(value: temporal))
-                
-        sender.shine()
+        let numero = sender.tag
+        temporal = Double(temp + String(numero))!
+        resultadoLabel.text = formateadorAMostrar.string(from: NSNumber(value: temporal))
     }
     
     private func limpiar() {
-        if operacion == .none {
+        if operacion == .ninguno {
             total = 0
         }
-        operacion = .none
-        buttonAC.setTitle("AC", for: .normal)
+        operacion = .ninguno
+        botonAC.setTitle("AC", for: .normal)
         if temporal != 0 {
             temporal = 0
-            resultLabel.text = "0"
+            resultadoLabel.text = "0"
         } else {
             total = 0
             mostrarResultado()
@@ -222,37 +207,36 @@ class ViewController: UIViewController {
     
     private func mostrarResultado(){
         switch operacion {
-        case .none:
+        case .ninguno:
             break
-        case .addiction:
+        case .suma:
             total = total + temporal
             break
-        case .substraction:
+        case .resta:
             total = total - temporal
             break
-        case .multiplication:
+        case .multiplicacion:
             total = total * temporal
             break
         case .division:
             total = total / temporal
             break
-        case .percent:
+        case .porcentaje:
             temporal = temporal / 100
             total = temporal
             break
         }
         
-        if let currentTotal = auxTotalFormatter.string(from: NSNumber(value: total)), currentTotal.count > longitudMaxima {
-            resultLabel.text = printScientificFormatter.string(from: NSNumber(value: total))
+        if let totalTemp = formateadorTotal.string(from: NSNumber(value: total)), totalTemp.count > longitudMaxima {
+            resultadoLabel.text = formateadorCientifico.string(from: NSNumber(value: total))
         } else {
-            resultLabel.text = printFormatter.string(from: NSNumber(value: total))
+            resultadoLabel.text = formateadorAMostrar.string(from: NSNumber(value: total))
         }
         
-        operacion = .none
+        operacion = .ninguno
                 
         UserDefaults.standard.set(total, forKey: totalAGuardar)
         
-        print("TOTAL: \(total)")
     }
     
         

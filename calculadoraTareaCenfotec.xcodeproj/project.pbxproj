@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A2E748925D646EA00186BE1 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2E748825D646EA00186BE1 /* UIButtonExtension.swift */; };
 		8A81BF1725D4AEE3006DB168 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A81BF1625D4AEE3006DB168 /* AppDelegate.swift */; };
 		8A81BF1925D4AEE3006DB168 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A81BF1825D4AEE3006DB168 /* SceneDelegate.swift */; };
 		8A81BF1B25D4AEE3006DB168 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A81BF1A25D4AEE3006DB168 /* ViewController.swift */; };
@@ -16,7 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8A2E748825D646EA00186BE1 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		8A81BF1325D4AEE3006DB168 /* Calculadora Cenfotec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculadora Cenfotec.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A81BF1625D4AEE3006DB168 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A81BF1825D4AEE3006DB168 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 		8A81BF1525D4AEE3006DB168 /* calculadoraTareaCenfotec */ = {
 			isa = PBXGroup;
 			children = (
-				8A81BF2D25D4B168006DB168 /* Util */,
 				8A81BF1625D4AEE3006DB168 /* AppDelegate.swift */,
 				8A81BF1825D4AEE3006DB168 /* SceneDelegate.swift */,
 				8A81BF1A25D4AEE3006DB168 /* ViewController.swift */,
@@ -65,14 +62,6 @@
 				8A81BF2425D4AEE5006DB168 /* Info.plist */,
 			);
 			path = calculadoraTareaCenfotec;
-			sourceTree = "<group>";
-		};
-		8A81BF2D25D4B168006DB168 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				8A2E748825D646EA00186BE1 /* UIButtonExtension.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +135,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A81BF1B25D4AEE3006DB168 /* ViewController.swift in Sources */,
-				8A2E748925D646EA00186BE1 /* UIButtonExtension.swift in Sources */,
 				8A81BF1725D4AEE3006DB168 /* AppDelegate.swift in Sources */,
 				8A81BF1925D4AEE3006DB168 /* SceneDelegate.swift in Sources */,
 			);
